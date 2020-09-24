@@ -1,0 +1,8 @@
+{
+    "url": "https://SUBDOMAIN.codefort.io",
+    "theme": "THEME_ID",
+    "auth": {
+        "key": "API_KEY",
+        "secret": "API_SECRET"
+    }
+}
