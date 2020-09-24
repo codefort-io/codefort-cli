@@ -15,10 +15,14 @@ class Upload {
             logger.info(`File: ${key}: has been updated.`);
         })
         .catch(error => {
-            if (error.response.status === 400) {
-                return logger.error(error.response.status+' - '+error.response.data.message);
+            if (error.response !== undefined) {
+                if (error.response.status === 400) {
+                    return logger.error(error.response.status+' - '+error.response.data.message);
+                }
+                return logger.error(error.response);
             }
-            logger.error(error.response);
+
+            throw error;
         });
     }
 }

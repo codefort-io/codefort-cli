@@ -44,7 +44,7 @@ class Fetch {
             }
         })
         .catch(error => {
-            if (error.response.status === 400) {
+            if (error.response !== undefined && error.response.status !== undefined && error.response.status === 400) {
                 logger.error(error.response.status+' - '+error.response.data.message)
             }
         });
