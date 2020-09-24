@@ -1,6 +1,6 @@
 {
   "name": "@codefort/cf",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Codefort CLI tool to edit your theme files locally.",
   "main": "index.js",
   "bin": "./index.js",

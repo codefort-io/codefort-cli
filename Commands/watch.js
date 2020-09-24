@@ -1,8 +1,7 @@
 const fs = require('fs');
 const UploadCommand = require('../Commands/upload');
-const files = require('../Utils/files');
 const logger = require('../Utils/logger');
-config = JSON.parse(files.read('./codefort.config.json'));
+const config = require('../Utils/config');
 
 const folders = [
     'layout',

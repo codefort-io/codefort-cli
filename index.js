@@ -3,7 +3,7 @@
 // Uncomment when developing against a local Codefort API.
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-const watchCommand = require('./Commands/Watch');
+const watchCommand = require('./Commands/watch');
 const initCommand = require('./Commands/init');
 const fetchCommand = require('./Commands/fetch');
 const uploadCommand = require('./Commands/upload');

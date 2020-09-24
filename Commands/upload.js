@@ -1,7 +1,7 @@
 const axios = require('axios');
 const logger = require('../Utils/logger');
 const files = require('../Utils/files');
-config = JSON.parse(files.read('./codefort.config.json'));
+const config = require('../Utils/config');
 
 class Upload {
     static handle(key) {

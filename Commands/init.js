@@ -1,9 +1,10 @@
 const fs = require('fs');
-const stub = JSON.stringify(require('../codefort.config.json'), null, 4);
+const config = require('../codefort.config.json');
 const logger = require('../Utils/logger');
 
 class Init {
     static handle() {
+        const stub = JSON.stringify(config, null, 4);
         if (fs.existsSync('codefort.config.json')){
             return logger.error('Codefort config file already exists.');
         }

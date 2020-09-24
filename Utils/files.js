@@ -12,7 +12,7 @@ class Files {
     }
 
     static read(key) {
-        if (!fs.existsSync(key)) {
+        if (!this.exists(key)) {
             return logger.error(`File: "${key}" does not exists.`);
         }
 
@@ -22,6 +22,10 @@ class Files {
             }
             return content;
         });
+    }
+
+    static exists(key) {
+        return fs.existsSync(key);
     }
 }
 
