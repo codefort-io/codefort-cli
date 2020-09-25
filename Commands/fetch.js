@@ -36,7 +36,9 @@ class Fetch {
         .then(response => {
             let assets = response.data.data;
             assets.forEach(asset => {
-                files.create(asset.key, asset.value)
+                if (asset.value !== null) {
+                    files.create(asset.key, asset.value)
+                }
             });
             let meta = response.data.meta;
             if (meta.last_page > page) {
@@ -47,6 +49,7 @@ class Fetch {
             if (error.response !== undefined && error.response.status !== undefined && error.response.status === 400) {
                 logger.error(error.response.status+' - '+error.response.data.message)
             }
+            logger.warning(error);
         });
     }
 }
