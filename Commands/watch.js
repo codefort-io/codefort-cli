@@ -1,7 +1,7 @@
-const fs = require('fs');
+const hound = require('hound');
 const UploadCommand = require('../Commands/upload');
+const DeleteCommand = require('../Commands/delete');
 const logger = require('../Utils/logger');
-const config = require('../Utils/config');
 
 const folders = [
     'layout',
@@ -17,17 +17,41 @@ const folders = [
 class Watch {
     static handle() {
         logger.info('Watching files for changes...')
-        fs.watch('./', {recursive: true}, (event, key) => {
+
+        var watcher = hound.watch('./')
+
+        watcher.on('create', function(file, stats) {
+            var key = file.split('.//')[1];
             let folder = key.split('/')[0];
 
             if (! folders.includes(folder)) {
                 return;
             }
 
-            if (event === 'change') {
-                UploadCommand.handle(key);
+            UploadCommand.handle(key);
+        })
+
+        watcher.on('change', function(file, stats) {
+            var key = file.split('.//')[1];
+            let folder = key.split('/')[0];
+
+            if (! folders.includes(folder)) {
+                return;
             }
-        });
+
+            UploadCommand.handle(key);
+        })
+        
+        watcher.on('delete', function(file) {
+            var key = file.split('.//')[1];
+            let folder = key.split('/')[0];
+
+            if (! folders.includes(folder)) {
+                return;
+            }
+
+            DeleteCommand.handle(key);
+        })
     }
 }
 

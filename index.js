@@ -7,6 +7,7 @@ const watchCommand = require('./Commands/watch');
 const initCommand = require('./Commands/init');
 const fetchCommand = require('./Commands/fetch');
 const uploadCommand = require('./Commands/upload');
+const deleteCommand = require('./Commands/delete');
 
 const command = process.argv[2];
 const argument = process.argv[3];
@@ -17,6 +18,10 @@ if (command === 'fetch') {
 
 if (command === 'upload') {
     uploadCommand.handle(argument);
+}
+
+if (command === 'delete') {
+    deleteCommand.handle(argument);
 }
 
 if (command === 'watch') {

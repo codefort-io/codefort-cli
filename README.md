@@ -30,9 +30,10 @@ $ cf fetch
 $ cf watch
 ```
 
-Alternatively it's also possible to just upload a single file.
+Alternatively it's also possible to just upload or delete a single file.
 ```bash
 $ cf upload templates/page.liquid
+$ cf delete templates/page.liquid
 ```
 
 *Please note that it's recommended to always run "cf fetch" every time you resume your work, as you could risk overwriting changes by other developers by making changes to outdated files.*
@@ -43,8 +44,17 @@ $ cf upload templates/page.liquid
 $ cf init
 $ cf fetch
 $ cf upload {filname}
+$ cf delete {filname}
 $ cf watch
 ```
+
+
+### Updating to the latest version.
+
+```bash
+$ npm install @codefort/cf@latest --global
+```
+*Depending on your system, you might need to run this command as sudo.*
 
 ## Semver
 

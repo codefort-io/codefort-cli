@@ -3,16 +3,11 @@ const logger = require('../Utils/logger');
 const files = require('../Utils/files');
 const config = require('../Utils/config');
 
-class Upload {
+class Delete {
     static handle(key) {
-        let content = files.read(key);
-
-        axios.post(`${config.url}/api/rest/themes/${config.theme}/assets.json?key=${config.auth.key}&secret=${config.auth.secret}`, {
-            "key": key,
-            "value": content
-        })
+        axios.delete(`${config.url}/api/rest/themes/${config.theme}/assets.json?key=${config.auth.key}&secret=${config.auth.secret}&filename=${key}`)
         .then(response => {
-            logger.info(`File: ${key}: has been updated.`);
+            logger.info(`File: ${key}: has been deleted.`);
         })
         .catch(error => {
             if (error.response !== undefined) {
@@ -31,4 +26,4 @@ class Upload {
     }
 }
 
-module.exports = Upload;
+module.exports = Delete;

@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/codefort-io/codefort-cli#readme",
   "dependencies": {
-    "axios": "^0.20.0"
+    "axios": "^0.20.0",
+    "hound": "^1.0.5"
   }
 }
