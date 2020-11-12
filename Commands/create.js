@@ -3,7 +3,7 @@ const logger = require('../Utils/logger');
 const files = require('../Utils/files');
 const config = require('../Utils/config');
 
-class Upload {
+class Create {
     static handle(key) {
         let content = files.read(key);
 
@@ -12,12 +12,7 @@ class Upload {
             "value": content
         })
         .then(response => {
-            if (content) {
-                logger.info(`File: ${key}: has been updated.`);
-            } else {
-                logger.info(`File: ${key}: has been blanked.`);
-            }
-            
+            logger.info(`File: ${key}: has been created.`);
         })
         .catch(error => {
             if (error.response !== undefined) {
@@ -36,4 +31,4 @@ class Upload {
     }
 }
 
-module.exports = Upload;
+module.exports = Create;

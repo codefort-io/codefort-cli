@@ -7,7 +7,7 @@ class Files {
             if (err) {
                 return logger.error(err);
             }
-            logger.info(`File: ${key} has been created/updated.`);
+            logger.info(`File: ${key} has been downloaded.`);
         });
     }
 
