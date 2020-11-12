@@ -1,9 +1,11 @@
 {
   "name": "@codefort/cf",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Codefort CLI tool to edit your theme files locally.",
   "main": "index.js",
-  "bin": "./index.js",
+  "bin": {
+    "cf": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
